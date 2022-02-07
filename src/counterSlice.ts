@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 export interface CounterState {
   value: number;
@@ -9,21 +9,21 @@ const initialState: CounterState = {
 };
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'COUNTER',
   initialState,
   reducers: {
-    increment: state => {
+    INCREMENT: state => {
       state.value += 1;
     },
-    decrement: state => {
+    DECREMENT: state => {
       state.value -= 1;
     },
-    incrementWithPayload: (state, payload) => {
+    INCREMENT_WITH_PAYLOAD: (state, payload) => {
       state.value += payload.payload;
     },
   },
 });
 
-export const {increment, decrement, incrementWithPayload} =
+export const {INCREMENT, DECREMENT, INCREMENT_WITH_PAYLOAD} =
   counterSlice.actions;
 export default counterSlice.reducer;
