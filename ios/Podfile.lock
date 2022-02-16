@@ -373,6 +373,8 @@ PODS:
     - React-RCTImage
   - RNSVG (12.1.1):
     - React
+  - SRSRadialGradient (1.0.9):
+    - React
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -435,6 +437,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
+  - SRSRadialGradient (from `../node_modules/react-native-radial-gradient/ios`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -521,6 +524,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
+  SRSRadialGradient:
+    :path: "../node_modules/react-native-radial-gradient/ios"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -571,6 +576,7 @@ SPEC CHECKSUMS:
   ReactCommon: d98c6c96b567f9b3a15f9fd4cc302c1eda8e3cf2
   RNScreens: d6da2b9e29cf523832c2542f47bf1287318b1868
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
+  SRSRadialGradient: 49ba49a7a8f257c3fe785c250867b07185d1d01e
   Yoga: 9b6696970c3289e8dea34b3eda93f23e61fb8121
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

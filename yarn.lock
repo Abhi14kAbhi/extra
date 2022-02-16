@@ -6511,6 +6511,11 @@ react-native-keyboard-aware-scroll-view@^0.9.5:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
+react-native-radial-gradient@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-radial-gradient/-/react-native-radial-gradient-1.0.9.tgz#de18106d4ba491f1ffb5e8bb9e17cb06ce2f4050"
+  integrity sha512-yGib/8t0Da35FYKOSuQf6fB02+OAjN55Dg93eN8ks35NreLHC0M+SZCJRjHlxO3zGE2E+m/90NJy0UZlSboCaQ==
+
 react-native-safe-area-context@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.3.2.tgz#9549a2ce580f2374edb05e49d661258d1b8bcaed"
