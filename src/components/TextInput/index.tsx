@@ -18,6 +18,7 @@ const TextInput = props => {
         placeholder={props.placeholder}
         borderWidth={0}
         height="100%"
+        {...props}
       />
     </View>
   );

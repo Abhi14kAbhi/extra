@@ -1,12 +1,12 @@
 // letters that does not exist in the word, add comma deperated letters in string format.
-const lettersDoesNotExist = [];
+const lettersDoesNotExist = ['h', 'r'];
 
 // letters that exists but in wrong position, add comma deperated letters in string format.
-const lettersWithWrongPosition = [];
+const lettersWithWrongPosition = ['c', 'a', 'i', 't', 't'];
 
 // letters that exists and in correct position, add comma deperated letters in string format.
 // For eg: the word is "joint" and we only know letters "j" and "i" in correct position, then change the below array like this ['j', '', 'i', '', '']
-const lettersWithCorrectPosition = ['', '', '', '', ''];
+const lettersWithCorrectPosition = ['', '', '', 'i', ''];
 
 const dataset = [
   'which',

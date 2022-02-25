@@ -1,10 +1,17 @@
-import {Text, View} from 'native-base';
-import React from 'react';
+import {Text, View, CheckIcon} from 'native-base';
+import React, {useState} from 'react';
 import {Pressable} from 'react-native';
 import Layout from '../../components/Layout';
 import TextInput from '../../components/TextInput';
+import {useSelector, useDispatch} from 'react-redux';
+import {REQUEST} from './slice';
+import {showSnackbar} from '../../helpers/snackbar';
 
 const Signup = ({navigation}) => {
+  const signupData = useSelector(state => state.signup);
+  const dispatch = useDispatch();
+  const [checkbox, setCheckbox] = useState(false);
+  const [number, setNumber] = useState('');
   const description = (
     <Text fontSize={'14px'} color="black.40">
       We will send you one time code on your phone number.
@@ -18,8 +25,20 @@ const Signup = ({navigation}) => {
     </Pressable>
   );
   const onSubmit = () => {
+    if (!number) {
+      showSnackbar('ERROR', 'Please fill all the fields.');
+      return;
+    } else if (number.length < 10) {
+      showSnackbar('ERROR', 'Please enter valid number.');
+      return;
+    } else if (!checkbox) {
+      showSnackbar('ERROR', 'Please mark the checkbox.');
+      return;
+    }
+    dispatch(REQUEST({number, countryCode: '+91', country: 'India'}));
     navigation.navigate('VerifyOtp');
   };
+
   return (
     <Layout
       title="Enter your mobile number"
@@ -28,8 +47,17 @@ const Signup = ({navigation}) => {
       onSubmit={onSubmit}
       rightElement={loginButton}>
       <View width="100%">
-        <TextInput type="text" placeholder="(+91) India" />
-        <TextInput type="text" placeholder="Enter Mobile Number" />
+        <TextInput value="(+91) India" type="text" placeholder="(+91) India" />
+        <TextInput
+          type="text"
+          placeholder="Enter Mobile Number"
+          value={number}
+          onChangeText={e => {
+            setNumber(e);
+          }}
+          maxLength={10}
+          keyboardType="number-pad"
+        />
         <View flexDirection="row" alignItems={'flex-start'} width="90%">
           <View
             mt={1}
@@ -37,9 +65,15 @@ const Signup = ({navigation}) => {
             width={'16px'}
             borderWidth={0.5}
             borderColor="white"
+            alignItems={'center'}
+            justifyContent="center"
             mr={3}>
-            <Pressable>
-              <Text></Text>
+            <Pressable onPress={() => setCheckbox(!checkbox)}>
+              {checkbox ? (
+                <CheckIcon color="white" size={3} />
+              ) : (
+                <View height="16px" width="16px" />
+              )}
             </Pressable>
           </View>
 

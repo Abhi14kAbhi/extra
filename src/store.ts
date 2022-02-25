@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
+import signupReducer from './screens/SignUp/slice';
 
 export const store = configureStore({
-  reducer: {counter: counterReducer},
+  reducer: {signup: signupReducer},
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -2,6 +2,7 @@ import {Input, Text, View} from 'native-base';
 import React, {useState} from 'react';
 import {Pressable} from 'react-native';
 import Layout from '../../components/Layout';
+import {useSelector} from 'react-redux';
 
 const Signup = ({navigation}) => {
   const [otp, setOtp] = useState(['', '', '', '']);
