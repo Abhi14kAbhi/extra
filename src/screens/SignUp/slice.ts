@@ -21,7 +21,7 @@ export const signupSlice = createSlice({
   initialState,
   reducers: {
     REQUEST: (state: SignupState, {payload}) => {
-      return {...state, ...payload, isRequesting: true};
+      return {...state, isRequesting: true};
     },
     SUCCESS: (state: SignupState) => {
       return {...state, isRequesting: false};

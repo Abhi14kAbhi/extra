@@ -1,11 +1,24 @@
-import {Button, Text, View, Image} from 'native-base';
-import React from 'react';
+import {Text, View} from 'native-base';
+import React, {useState} from 'react';
 import {Pressable} from 'react-native';
-import Images from '../../assets';
+import {useDispatch} from 'react-redux';
+import {SET_USER_DETAILS} from '../../appSlice';
 import Layout from '../../components/Layout';
 import TextInput from '../../components/TextInput';
+import {REQUEST} from './slice';
+import {validation} from './validation';
 
 const Signup = ({navigation}) => {
+  const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
+  const onSubmit = () => {
+    console.log(validation(number));
+    if (!validation(number)) {
+      return;
+    }
+    dispatch(REQUEST({number}));
+    dispatch(SET_USER_DETAILS({number}));
+  };
   const description = (
     <Text fontSize={'14px'} color="black.40">
       Enter the same number you enter at time of sign up.
@@ -25,10 +38,16 @@ const Signup = ({navigation}) => {
       title="Login to your account"
       description={description}
       buttonText="LOGIN"
-      onSubmit={() => {}}
+      onSubmit={onSubmit}
       rightElement={signupButton}>
       <View>
-        <TextInput type="text" placeholder="Enter Mobile Number" />
+        <TextInput
+          onChangeText={e => setNumber(e)}
+          value={number}
+          type="text"
+          maxLength={10}
+          placeholder="Enter Mobile Number"
+        />
         <Text
           mb={'24px'}
           alignSelf={'center'}

@@ -5,10 +5,10 @@ import Layout from '../../components/Layout';
 import TextInput from '../../components/TextInput';
 import {useSelector, useDispatch} from 'react-redux';
 import {REQUEST} from './slice';
-import {showSnackbar} from '../../helpers/snackbar';
+import {SET_USER_DETAILS} from '../../appSlice';
+import {validation} from './validation';
 
 const Signup = ({navigation}) => {
-  const signupData = useSelector(state => state.signup);
   const dispatch = useDispatch();
   const [checkbox, setCheckbox] = useState(false);
   const [number, setNumber] = useState('');
@@ -25,18 +25,12 @@ const Signup = ({navigation}) => {
     </Pressable>
   );
   const onSubmit = () => {
-    if (!number) {
-      showSnackbar('ERROR', 'Please fill all the fields.');
-      return;
-    } else if (number.length < 10) {
-      showSnackbar('ERROR', 'Please enter valid number.');
-      return;
-    } else if (!checkbox) {
-      showSnackbar('ERROR', 'Please mark the checkbox.');
-      return;
+    if (!validation(number, checkbox)) {
+      // return;
     }
     dispatch(REQUEST({number, countryCode: '+91', country: 'India'}));
-    navigation.navigate('VerifyOtp');
+    dispatch(SET_USER_DETAILS({number, countryCode: '+91', country: 'India'})); // have to move this to saga
+    navigation.navigate('VerifyOtp'); // have to movre this to saga
   };
 
   return (
@@ -70,7 +64,7 @@ const Signup = ({navigation}) => {
             mr={3}>
             <Pressable onPress={() => setCheckbox(!checkbox)}>
               {checkbox ? (
-                <CheckIcon color="white" size={3} />
+                <CheckIcon alt="check-box" color="white" size={3} />
               ) : (
                 <View height="16px" width="16px" />
               )}
