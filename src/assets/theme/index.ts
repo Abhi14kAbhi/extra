@@ -20,6 +20,9 @@ export default extendTheme({
       100: '#1977BE',
       0: '#44AFFF',
     },
+    purple: {
+      100: '#262A2D',
+    },
     green: {
       100: '#09832B',
       0: '#5ED680',

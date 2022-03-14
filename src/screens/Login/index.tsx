@@ -12,12 +12,12 @@ const Signup = ({navigation}) => {
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const onSubmit = () => {
-    console.log(validation(number));
     if (!validation(number)) {
-      return;
+      // return;
     }
     dispatch(REQUEST({number}));
     dispatch(SET_USER_DETAILS({number}));
+    navigation.navigate('Home');
   };
   const description = (
     <Text fontSize={'14px'} color="black.40">

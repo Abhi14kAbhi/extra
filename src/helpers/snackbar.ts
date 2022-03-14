@@ -5,8 +5,8 @@ export const showSnackbar = (
   message: string,
   duration = 3000,
 ) => {
-  const backgroundColor = '#EEF1F3';
-  const errorTextColor = '#EB5151';
+  const backgroundColor = '#262A2E';
+  const errorTextColor = '#F3F3F3';
   const warningTextColor = '#D17B2B';
   switch (type) {
     case 'ERROR':

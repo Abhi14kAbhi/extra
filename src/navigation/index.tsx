@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Splash from '../screens/Splash';
 import Login from '../screens/Login';
@@ -11,8 +12,39 @@ import EmailInfo from '../screens/EmailInfo';
 import Permissions from '../screens/Permissions';
 import Terms from '../screens/Terms';
 import Privacy from '../screens/Policy';
+import Introduction from '../screens/Introduction';
+import Home from '../screens/Home';
+import AddNew from '../screens/Home/features/AddNew';
+import Expenses from '../screens/Home/features/Expenses';
+import Account from '../screens/Home/features/Account';
+import Track from '../screens/Home/features/Track';
+import EditProfile from '../screens/EditProfile';
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const screenOptions = {
+  tabBarStyle: {
+    backgroundColor: '#262A2D',
+    height: 80,
+  },
+  // tabBarItemStyle: {}, // have to add later
+};
+
+const TabNavigation = () => {
+  return (
+    <Tab.Navigator initialRouteName="Account" {...{screenOptions}}>
+      <Tab.Screen name="AddNew" component={AddNew} />
+      <Tab.Screen name="Expenses" component={Expenses} />
+      <Tab.Screen
+        options={{headerShown: false}}
+        name="Account"
+        component={Account}
+      />
+      <Tab.Screen name="Track" component={Track} />
+    </Tab.Navigator>
+  );
+};
 
 const StackNavigation = () => {
   return (
@@ -21,6 +53,11 @@ const StackNavigation = () => {
         <Stack.Screen
           name="Splash"
           component={Splash}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Home"
+          component={TabNavigation}
           options={{headerShown: false}}
         />
         <Stack.Screen
@@ -61,6 +98,16 @@ const StackNavigation = () => {
         <Stack.Screen
           name="Privacy"
           component={Privacy}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Introduction"
+          component={Introduction}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
