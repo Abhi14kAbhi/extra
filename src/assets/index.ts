@@ -15,6 +15,9 @@ export const Images = {
   document: require('./images/document.png'),
   dummyUser: require('./images/dummyUser.png'),
   camera: require('./images/camera.png'),
+  rateUs: require('./images/RateUs.png'),
+  googlePlay: require('./images/googlePlay.png'),
+  aboutUs: require('./images/aboutUs.png'),
 };
 
 export default Images;

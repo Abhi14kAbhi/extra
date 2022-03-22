@@ -10,7 +10,7 @@ const Account = ({navigation}) => {
     {image: Images.account, title: 'Help ?', navigateTo: 'Help'},
     {image: Images.account, title: "FAQ's", navigateTo: 'FAQs'},
     {image: Images.account, title: 'Rate Us', navigateTo: 'RateUs'},
-    {image: Images.account, title: 'About Us', navigateTo: 'About Us'},
+    {image: Images.account, title: 'About Us', navigateTo: 'AboutUs'},
   ];
   return (
     <Background>

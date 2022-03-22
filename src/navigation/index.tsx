@@ -19,6 +19,8 @@ import Expenses from '../screens/Home/features/Expenses';
 import Account from '../screens/Home/features/Account';
 import Track from '../screens/Home/features/Track';
 import EditProfile from '../screens/EditProfile';
+import RateUs from '../screens/RateUs';
+import AboutUs from '../screens/AboutUs';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -108,6 +110,16 @@ const StackNavigation = () => {
         <Stack.Screen
           name="EditProfile"
           component={EditProfile}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RateUs"
+          component={RateUs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AboutUs"
+          component={AboutUs}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
